@@ -2,18 +2,25 @@
   "name": "nuxt-ccxt",
   "version": "1.0.0",
   "description": "Nuxt.js + Vuetify.js project",
-  "author": "",
+  "author": "hijiri001 <shy@oboe.club.ne.jp>",
   "private": true,
+  "engines": {
+    "node": "^8.11.1",
+    "npm": "^5.7.1"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
-    "ccxt": "^1.13.134",
+    "ccxt": "^1.13.106",
     "firebase": "^5.0.2",
+    "firebaseui": "^3.0.0",
     "nuxt": "^1.0.0",
+    "vuefire": "^1.4.5",
     "vuetify": "^1.0.0"
   },
   "devDependencies": {
