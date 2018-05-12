@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 
 module.exports = {
   /*
@@ -15,6 +16,7 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
     ]
   },
+  mode: 'spa',
   plugins: ['~/plugins/vuetify.js'],
   css: [
     '~/assets/style/app.styl'
@@ -43,6 +45,9 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
+      config.plugins.push(
+        new webpack.EnvironmentPlugin(['APIKEY', 'AUTHDOMAIN', 'DATABASEURL', 'PROJECTID', 'STORAGEBUCKET', 'MESSAGINGSENDERID'])
+      )
     }
   }
 }
