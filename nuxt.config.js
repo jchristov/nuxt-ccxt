@@ -1,5 +1,3 @@
-const webpack = require('webpack')
-
 module.exports = {
   /*
   ** Headers of the page
@@ -49,9 +47,6 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-      config.plugins.push(
-        new webpack.EnvironmentPlugin(['APIKEY', 'AUTHDOMAIN', 'DATABASEURL', 'PROJECTID', 'STORAGEBUCKET', 'MESSAGINGSENDERID'])
-      )
     }
   }
 }
