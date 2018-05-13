@@ -48,9 +48,15 @@
       <v-spacer></v-spacer>
       <v-btn
         icon
-        @click.stop="rightDrawer = !rightDrawer"
+        @click.stop="toggleSidebar"
       >
-        <v-icon>menu</v-icon>
+        <v-avatar
+          :size="avatarSize"
+          v-if="user"
+        >
+          <img :src="user.photoURL" alt="avatar">
+        </v-avatar>
+         <v-icon v-else>menu</v-icon>
       </v-btn>
     </v-toolbar>
     <v-content>
@@ -64,14 +70,7 @@
       v-model="rightDrawer"
       fixed
     >
-      <!-- <v-list>
-        <v-list-tile @click.native="right = !right">
-          <v-list-tile-action>
-            <v-icon light>compare_arrows</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
-        </v-list-tile>
-      </v-list> -->
+      <right-menu />
     </v-navigation-drawer>
     <v-footer :fixed="fixed" app>
       <span>&copy; 2018</span>
@@ -80,7 +79,13 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
+import RightMenu from '~/components/RightMenu'
+
 export default {
+  components: {
+    RightMenu
+  },
   data () {
     return {
       clipped: true,
@@ -95,7 +100,22 @@ export default {
       right: true,
       rightDrawer: false,
       title: 'ビットポータル',
-      subTitle: 'BitPortal'
+      subTitle: 'BitPortal',
+      avatarSize: 42
+    }
+  },
+  computed: {
+    ...mapGetters(['sidebar', 'user'])
+  },
+  methods: {
+    ...mapActions(['toggleSidebar'])
+  },
+  watch: {
+    sidebar () {
+      this.rightDrawer = this.sidebar
+    },
+    rightDrawer () {
+      this.toggleSidebar(this.rightDrawer)
     }
   }
 }

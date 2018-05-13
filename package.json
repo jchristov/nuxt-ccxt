@@ -18,9 +18,7 @@
   "dependencies": {
     "ccxt": "^1.13.106",
     "firebase": "^5.0.2",
-    "firebaseui": "^3.0.0",
     "nuxt": "^1.0.0",
-    "vuefire": "^1.4.5",
     "vuetify": "^1.0.0"
   },
   "devDependencies": {

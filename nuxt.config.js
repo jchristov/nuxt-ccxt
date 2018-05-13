@@ -17,7 +17,10 @@ module.exports = {
     ]
   },
   mode: 'spa',
-  plugins: ['~/plugins/vuetify.js'],
+  plugins: [
+    '~/plugins/firebase',
+    '~/plugins/vuetify'
+  ],
   css: [
     '~/assets/style/app.styl'
   ],
@@ -30,7 +33,8 @@ module.exports = {
   */
   build: {
     vendor: [
-      '~/plugins/vuetify.js'
+      'firebase',
+      'vuetify'
     ],
     extractCSS: true,
     /*
