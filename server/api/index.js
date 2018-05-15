@@ -1,13 +1,10 @@
 import {Router} from 'express'
 
-import ccxt from './ccxt'
+import users from './users'
 
 const router = Router()
 
-router.use(ccxt)
-
-router.get('/', (req, res) => {
-  res.json({data: 'ok'})
-})
+// Add USERS Routes
+router.use(users)
 
 export default router
