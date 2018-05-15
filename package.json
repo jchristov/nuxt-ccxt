@@ -9,20 +9,25 @@
     "npm": "^5.7.1"
   },
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
+    "dev": "backpack dev",
+    "build": "nuxt build && backpack build",
+    "start": "cross-env NODE_ENV=production node build/main.js",
     "generate": "nuxt generate",
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.3.1",
+    "body-parser": "^1.18.3",
     "ccxt": "^1.13.106",
+    "cross-env": "^5.1.5",
+    "express": "^4.16.3",
     "firebase": "^5.0.2",
     "nuxt": "^1.0.0",
     "vuetify": "^1.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
+    "backpack-core": "^0.7.0",
     "eslint": "^4.3.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-loader": "^1.9.0",
