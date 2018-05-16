@@ -74,13 +74,13 @@ export const actions = {
   }
 }
 
-router.get('ccxt', (req, res) => {
+router.get('/ccxt/config', (req, res) => {
   res.json({
     timeout: state.timeout,
     exchangeList: state.exchangeList
   })
 })
-router.post('ccxt/start', (req, res) => {
+router.post('/ccxt/start', (req, res) => {
   console.log('ccxt/start req %o', req)
   if (req.body) {
     let timeout = req.body.timeout
@@ -96,7 +96,7 @@ router.post('ccxt/start', (req, res) => {
   res.json('Ok')
 })
 
-router.post('ccxt/stop', (req, res) => {
+router.post('/ccxt/stop', (req, res) => {
   console.log('ccxt/stop req %o', req)
   actions.stopGetOrderbooks()
   res.json('Ok')
